@@ -13,6 +13,7 @@ const userSchema = new Schema({
 	telephone: String,
 	email: {
 		type: String,
+		unique: true,
 		require: true,
 	},
 	address: String,
