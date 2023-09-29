@@ -17,5 +17,5 @@ const rawSchema = new Schema(
 		timestamps: true,
 	}
 );
-
+rawSchema.set('versionKey', false);
 module.exports = rawSchema;

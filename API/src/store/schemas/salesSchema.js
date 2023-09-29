@@ -28,5 +28,5 @@ const salesSchema = new Schema(
 		timestamps: true,
 	}
 );
-
+salesSchema.set('versionKey', false);
 module.export = salesSchema;

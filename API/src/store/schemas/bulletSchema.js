@@ -28,6 +28,8 @@ const bulletSchema = new Schema(
 	}
 );
 
+bulletSchema.set('versionKey', false);
+
 bulletSchema.pre('save', (next) => {
 	this.available = this.amount - this.reserved;
 

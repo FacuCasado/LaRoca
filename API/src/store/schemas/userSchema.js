@@ -27,5 +27,5 @@ const userSchema = new Schema({
 		default: 'user',
 	},
 });
-
+userSchema.set('versionKey', false);
 module.exports = userSchema;
