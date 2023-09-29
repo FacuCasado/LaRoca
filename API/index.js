@@ -11,5 +11,5 @@ mongoose
 	.catch((error) => console.log(`Mongo error:${error}`));
 
 server.listen(PORT, () => {
-	console.log(`Database listening on port ${PORT}`);
+	console.log(`Server listening on port ${PORT}`);
 });

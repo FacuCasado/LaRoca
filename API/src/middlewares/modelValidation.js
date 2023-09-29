@@ -1,5 +1,5 @@
 const store = require('../store');
-const { DatabaseError } = require('../utils');
+const { ClientError } = require('../utils');
 
 module.exports = (req, res, next) => {
 	const { model } = req.params;
@@ -7,6 +7,6 @@ module.exports = (req, res, next) => {
 	if (store.hasOwnProperty(model)) {
 		return next();
 	} else {
-		throw new DatabaseError('Model invalido', 401);
+		throw new ClientError('Model invalido', 401);
 	}
 };
