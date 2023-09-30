@@ -1,8 +1,16 @@
-const { Raw } = require('../store');
+const { Raw, Stock } = require('../store');
 
 module.exports = {
 	newEntry: async (data) => {
 		const newRaw = await Raw.create(data);
+		console.log(newRaw);
+		const stock = await Stock.updateMany(
+			{},
+			{
+				$inc: { availableRaw: newRaw.amount },
+			}
+		);
+		console.log(stock);
 		return newRaw;
 	},
 

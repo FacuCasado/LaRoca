@@ -5,4 +5,5 @@ module.exports = {
 	Raw: mongoose.model('Raw', require('./schemas/rawSchema')),
 	Sales: mongoose.model('Sales', require('./schemas/salesSchema')),
 	User: mongoose.model('User', require('./schemas/userSchema')),
+	Stock: mongoose.model('Stock', require('./schemas/stockSchema')),
 };
