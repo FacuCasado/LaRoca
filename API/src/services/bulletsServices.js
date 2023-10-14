@@ -4,13 +4,25 @@ module.exports = {
 	newEntry: async (data) => {
 		const { usedRaw, ...bulletData } = data;
 		const newBullet = await Bullet.create(bulletData);
-		const stock = await Stock.updateMany(
-			{},
+
+		const bulletStock = await Stock.updateMany(
+			{ name: bulletData.name },
 			{
-				$inc: { availableBullets: bulletData.amount, availableRaw: -usedRaw },
+				$inc: { available: bulletData.amount },
 			}
 		);
-		console.log(stock);
+		await Stock.updateMany(
+			{ name: 'raw' },
+			{
+				$inc: { available: -usedRaw },
+			}
+		);
+		if (bulletStock.modifiedCount === 0) {
+			await Stock.create({
+				name: bulletData.name,
+				available: bulletData.amount,
+			});
+		}
 		return newBullet;
 	},
 

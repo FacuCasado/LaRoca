@@ -5,11 +5,17 @@ module.exports = {
 		const newRaw = await Raw.create(data);
 		console.log(newRaw);
 		const stock = await Stock.updateMany(
-			{},
+			{ name: 'raw' },
 			{
-				$inc: { availableRaw: newRaw.amount },
+				$inc: { available: newRaw.amount },
 			}
 		);
+		if (stock.modifiedCount === 0) {
+			await Stock.create({
+				name: 'raw',
+				available: newRaw.amount,
+			});
+		}
 		console.log(stock);
 		return newRaw;
 	},
