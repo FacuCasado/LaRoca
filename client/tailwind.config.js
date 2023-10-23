@@ -15,9 +15,9 @@ export default {
 		extend: {
 			colors: {
 				// Dark:
-				text: '#FFFFFF',
-				primary: '#F3E5AB',
-				secondary: '#F8DE7E',
+				text: '#44403c',
+				primary: '#fde68a',
+				secondary: '#fef3c7',
 				secondaryBorder: '#FFFFFF',
 				errorText: '#f87171',
 				// Light:

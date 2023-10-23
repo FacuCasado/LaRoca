@@ -20,7 +20,7 @@
 @layer components {
 	/* Buttons */
 	.btnPrimary {
-		@apply block w-full text-lg py-2 rounded-full text-text font-medium bg-gradient-to-r from-yellow-700 to-red-400 border border-fuchsia-400 hover:bg-gradient-to-r hover:from-fuchsia-500 hover:to-pink-400 focus:outline-none transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+		@apply block w-full text-lg py-2 rounded-full text-text font-medium bg-gradient-to-tr from-amber-300 via-amber-400 to-amber-500 border border-amber-500 hover:bg-gradient-to-tr hover:from-amber-200 hover:via-amber-300 hover:to-amber-400 focus:outline-none transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
 	}
 
 	.btnPagination {
