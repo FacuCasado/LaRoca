@@ -9,10 +9,10 @@ export const singIn = (payload) => {
 	return async (dispatch) => {
 		try {
 			const response = await axios.post(`${BACKEND_URL}/user/login`, payload);
-			console.log(response);
+			const user = await response.data.data;
 			dispatch({
 				type: USER_SIGN_IN,
-				payload: response,
+				payload: user,
 			});
 		} catch (error) {
 			console.log(error);
