@@ -2,6 +2,10 @@ const { Schema } = require('mongoose');
 
 const rawSchema = new Schema(
 	{
+		name: {
+			type: String,
+			require: true,
+		},
 		amount: {
 			type: Number,
 			require: true,

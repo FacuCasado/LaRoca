@@ -3,20 +3,18 @@ const { Raw, Stock } = require('../store');
 module.exports = {
 	newEntry: async (data) => {
 		const newRaw = await Raw.create(data);
-		console.log(newRaw);
 		const stock = await Stock.updateMany(
-			{ name: 'raw' },
+			{ name: data.name },
 			{
 				$inc: { available: newRaw.amount },
 			}
 		);
 		if (stock.modifiedCount === 0) {
 			await Stock.create({
-				name: 'raw',
+				name: data.name,
 				available: newRaw.amount,
 			});
 		}
-		console.log(stock);
 		return newRaw;
 	},
 
